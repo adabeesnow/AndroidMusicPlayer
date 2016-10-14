@@ -3,83 +3,67 @@ package adsal.cs3270.musicplayer;
 
 import android.net.Uri;
 
-public class Track {
+/**
+ * Container class for track metadata.
+ */
+class Track {
 
-    private String trackName;
-    private String trackArtistName;
-    private String trackAlbumName;
-    private String trackDuration;
-    private String trackFullPath; // Is actually accessed.
-    private Uri trackUri;
-    private int trackId; // Is actually accessed.
+    private String  trackName;
+    private String  trackArtistName;
+    private String  trackAlbumName;
+    private String  trackDuration;
+    private String  trackFullPath;
+    private Uri     trackUri;
+    private int     trackId;
 
-    public Track() {}
-
-/*    public Track(String trackName, String trackArtistName, String trackAlbumName,
-                 String trackDuration, String trackFullPath, Uri trackUri, int trackId) {
-        this.trackName = trackName;
-        this.trackArtistName = trackArtistName;
-        this.trackAlbumName = trackAlbumName;
-        this.trackDuration = trackDuration;
-        this.trackFullPath = trackFullPath;
-        this.trackUri = trackUri;
-        this.trackId = trackId;
-    }*/
+    Track() {}
 
 
-    public String getTrackName() {
+    String getTrackName() {
         return trackName;
     }
 
-    public void setTrackName(String trackName) {
+    void setTrackName(String trackName) {
         this.trackName = trackName;
     }
 
-    public String getTrackArtistName() {
+    String getTrackArtistName() {
         return trackArtistName;
     }
 
-    public void setTrackArtistName(String trackArtistName) {
+    void setTrackArtistName(String trackArtistName) {
         this.trackArtistName = trackArtistName;
     }
 
-    public String getTrackAlbumName() {
+    String getTrackAlbumName() {
         return trackAlbumName;
     }
 
-    public void setTrackAlbumName(String trackAlbumName) {
+    void setTrackAlbumName(String trackAlbumName) {
         this.trackAlbumName = trackAlbumName;
     }
 
-    public String getTrackDuration() {
+    String getTrackDuration() {
         return trackDuration;
     }
 
-    public void setTrackDuration(String trackDuration) {
+    void setTrackDuration(String trackDuration) {
         this.trackDuration = trackDuration;
     }
 
-    /*public String getTrackFullPath() {
-        return trackFullPath;
-    }*/
-
-    public void setTrackFullPath(String trackFullPath) {
+    void setTrackFullPath(String trackFullPath) {
         this.trackFullPath = trackFullPath;
     }
 
-    public Uri getTrackUri() {
+    Uri getTrackUri() {
         return trackUri;
     }
 
-    public void setTrackUri(Uri trackUri) {
+    void setTrackUri(Uri trackUri) {
         this.trackUri = trackUri;
     }
 
-    /*public int getTrackId() {
-        return trackId;
-    }*/
-
-    public void setTrackId(int trackId) {
+    void setTrackId(int trackId) {
         this.trackId = trackId;
     }
 }

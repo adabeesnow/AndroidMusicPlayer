@@ -13,12 +13,12 @@ import android.widget.Toast;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A {@link Fragment} subclass.
+ * Contains seekbar, control buttons, and track metadata and current position labels.
  */
 public class ControlFragment extends Fragment {
 
     private SeekBar     seekbar;
-    //private ImageButton btnShuffle;
     private boolean     startedPlaying;
     private boolean     playing;
     private TextView    txvName;
@@ -31,7 +31,6 @@ public class ControlFragment extends Fragment {
     public ControlFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -4,6 +4,10 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * Holds TrackListFragment and ControlFragment.
+ * Contains methods to facilitate inter-fragment communication.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -57,10 +61,5 @@ public class MainActivity extends AppCompatActivity {
         TrackListFragment tlf = (TrackListFragment) getSupportFragmentManager().findFragmentByTag("TLF");
         tlf.updateTrackProgress(progress);
     }
-
-    /*public void setSeekBarSize(int duration) {
-        ControlFragment cf = (ControlFragment) getSupportFragmentManager().findFragmentByTag("CF");
-        cf.setSeekBarSize(duration);
-    }*/
 
 }

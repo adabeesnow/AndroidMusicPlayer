@@ -29,18 +29,17 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A {@link Fragment} subclass.
+ * Contains the tracklist; is placed in MainActivity.
  */
 public class TrackListFragment extends ListFragment {
 
-    //ListView lv;  --for normal fragment (not ListFragment)
-
-    private String[] STAR = {"*"};
-    private MediaPlayerService mediaPlayerService;
-    private ArrayList<Track> trackList;
-    private Intent playIntent;
-    private BroadcastReceiver receiver;
-    private CountDownTimer cdt;
+    private String[]            STAR = {"*"};
+    private MediaPlayerService  mediaPlayerService;
+    private ArrayList<Track>    trackList;
+    private Intent              playIntent;
+    private BroadcastReceiver   receiver;
+    private CountDownTimer      cdt;
 
     public TrackListFragment() {
         // Required empty public constructor
@@ -57,7 +56,6 @@ public class TrackListFragment extends ListFragment {
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                //String s = intent.getStringExtra(MediaPlayerService.UPDATE_CUR_TRACK_INFO);
                 updateTextViews();
             }
         };
@@ -84,7 +82,6 @@ public class TrackListFragment extends ListFragment {
         Log.d("test", "ListView position:" + position + " - id:" + id);
         mediaPlayerService.setSelectedTrack(position,
                 MediaPlayerService.NOTIFICATION_ID);
-        //serviceMusic.setSelectedTrack(position, MusicService.NOTIFICATION_ID);
     }
 
 
@@ -146,7 +143,6 @@ public class TrackListFragment extends ListFragment {
 
     public void prev() {
         mediaPlayerService.previousTrack();
-        //updateTextViews();
     }
 
     public void playPause() {
@@ -155,7 +151,6 @@ public class TrackListFragment extends ListFragment {
 
     public void next() {
         mediaPlayerService.nextTrack();
-        //updateTextViews();
     }
 
     public boolean serviceUp() {
@@ -191,11 +186,6 @@ public class TrackListFragment extends ListFragment {
         MainActivity ma = (MainActivity) getActivity();
         ma.updateTextViews(name, artist, album, duration, seekBarMax);
     }
-
-    /*public void setSeekBarSize() {
-        MainActivity ma = (MainActivity) getActivity();
-        ma.setSeekBarSize(mediaPlayerService.getPlayerDuration());
-    }*/
 
     @Override
     public void onStart() {

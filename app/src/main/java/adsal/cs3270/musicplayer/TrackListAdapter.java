@@ -10,12 +10,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TrackListAdapter extends BaseAdapter{
+/**
+ * Adapts track objects to be displayed by TrackListFragment.
+ */
+class TrackListAdapter extends BaseAdapter{
 
-    private Context context;
-    private ArrayList<Track> trackList;
+    private Context             context;
+    private ArrayList<Track>    trackList;
 
-    public TrackListAdapter(Context context, ArrayList<Track> trackList) {
+    TrackListAdapter(Context context, ArrayList<Track> trackList) {
         this.context = context;
         this.trackList = trackList;
     }
@@ -38,7 +41,6 @@ public class TrackListAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
-            //convertView = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_2, null);
             convertView = LayoutInflater.from(context).inflate(R.layout.list_item_track, parent, false);
         }
 
@@ -53,8 +55,4 @@ public class TrackListAdapter extends BaseAdapter{
         return convertView;
     }
 
-/*    public void setTrackList(ArrayList<Track> trackList) {
-        this.trackList = trackList;
-        this.notifyDataSetChanged();
-    }*/
 }

@@ -21,13 +21,16 @@ import android.widget.RemoteViews;
 
 import java.util.ArrayList;
 
+/**
+ * Service for controlling the mediaPlayer object and instantiating notification controls.
+ */
 public class MediaPlayerService extends Service implements MediaPlayer.OnPreparedListener,
         MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener{
 
-    private MediaPlayer mediaPlayer;
-    private Uri  trackUri; // Is actually accessed.
-    private ArrayList<Track> trackList;
-    private LocalBroadcastManager broadcaster;
+    private MediaPlayer             mediaPlayer;
+    private Uri                     trackUri;
+    private ArrayList<Track>        trackList;
+    private LocalBroadcastManager   broadcaster;
 
     private final IBinder       trackBinder =      new PlayerBinder();
     private final String        ACTION_STOP =      "adsal.cs3270.MusicPlayer.STOP";
@@ -45,11 +48,11 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnPrepare
     static final public String  UPDATE_CUR_TRACK_INFO =    "adsal.cs3270.MusicPlayer.UPDATE";
     public static int           NOTIFICATION_ID =          11;
 
-    private Notification.Builder notificationBuilder;
-    private Notification mNotification;
+    private Notification.Builder    notificationBuilder;
+    private Notification            mNotification;
 
     public class PlayerBinder extends Binder {
-        public MediaPlayerService getService() {
+        MediaPlayerService getService() {
             Log.d("test", "getService()");
             return MediaPlayerService.this;
         }
@@ -112,19 +115,6 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnPrepare
         return false;
     }
 
-    public void startTrack(Uri trackUri, String trackName) {
-        mediaPlayer.reset();
-        state = STATE_PLAYING;
-        this.trackUri = trackUri;
-        try{
-            mediaPlayer.setDataSource(getApplicationContext(), trackUri);
-        } catch (Exception e) {
-            Log.e("MediaPlayerService", "Error setting data source", e);
-        }
-        mediaPlayer.prepareAsync();
-        updateNotification(trackName);
-    }
-
     @Override
     public void onCompletion(MediaPlayer mp) {
         mediaPlayer.reset();
@@ -176,6 +166,19 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnPrepare
             }
         }
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    public void startTrack(Uri trackUri, String trackName) {
+        mediaPlayer.reset();
+        state = STATE_PLAYING;
+        this.trackUri = trackUri;
+        try{
+            mediaPlayer.setDataSource(getApplicationContext(), trackUri);
+        } catch (Exception e) {
+            Log.e("MediaPlayerService", "Error setting data source", e);
+        }
+        mediaPlayer.prepareAsync();
+        updateNotification(trackName);
     }
 
     public void setSelectedTrack(int pos, int notification_id) {
