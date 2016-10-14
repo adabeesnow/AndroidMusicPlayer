@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Music Player</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_tracks_by">Sort tracks by…</string>
+    <string name="show_all_tracks">Show all tracks</string>
+    <string name="load_playlist">Load playlist</string>
+    <string name="new_playlist">New playlist</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="track_name">Track Name</string>
+    <string name="previous_track">Previous Track</string>
+    <string name="play_or_pause_track">Play or Pause Track</string>
+    <string name="next_track">Next track</string>
+    <string name="shuffle_tracks">Shuffle tracks</string>
+    <string name="album_name">Album Name</string>
+    <string name="no_album_art">No album art</string>
+    <string name="_0_00">0:00</string>
+    <string name="music_player_icon">Music Player Icon</string>
+    <string name="hyphen">-</string>
+    <string name="stop">Stop</string>
+</resources>
